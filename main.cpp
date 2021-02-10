@@ -1,10 +1,6 @@
 #include <Windows.h>
 #include <DbgHelp.h>
 #include <stdio.h>
-#include <winternl.h>
-#include <malloc.h>	
-#include <tchar.h>
-#include <Bits.h>
 
 #if _DEBUG
 #pragma comment(lib,"Dbghelp.lib")
