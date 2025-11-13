@@ -63,7 +63,8 @@ VOID InstrumentationCallback(PCONTEXT ctx)
 	//
 	// Prevent recursion. TEB->InstrumentationCallbackDisabled
 	//
-	bInstrumentationCallbackDisabled = *((BOOLEAN*)pTEB + 0x1b8);
+	// Fixed offset, thanks Evan!
+	bInstrumentationCallbackDisabled = *((BOOLEAN*)pTEB + 0x2ec);
 
 	if (!bInstrumentationCallbackDisabled) {
 
@@ -181,7 +182,8 @@ VOID InstrumentationCallback(PCONTEXT ctx)
 		//
 		// Enabling so we can catch next callback.
 		//
-		* ((BOOLEAN*)pTEB + 0x1b8) = FALSE;
+		// Fix offset, thanks Evan!
+		* ((BOOLEAN*)pTEB + 0x2ec) = FALSE;
 	}
 
 	RtlRestoreContext(ctx, NULL);
