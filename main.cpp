@@ -71,7 +71,7 @@ VOID InstrumentationCallback(PCONTEXT ctx)
 		//
 		// Disabling for no recursion
 		// 
-		*((BOOLEAN*)pTEB + 0x1b8) = TRUE;
+		*((BOOLEAN*)pTEB + 0x2ec) = TRUE;
 
 #if _DEBUG
 		SymbolInfo = (PSYMBOL_INFO)SymbolBuffer;
